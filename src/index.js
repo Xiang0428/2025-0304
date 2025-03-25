@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Profile from './Profile';
+import Register from './Register';
+import Login from './Login';
 import reportWebVitals from './reportWebVitals';
+
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,7 +21,10 @@ root.render(
               <Link to="/">首頁</Link>
             </li>
             <li>
-              <Link to="/profile">個人資料</Link>
+              <Link to="/register">註冊</Link>
+            </li>
+            <li>
+              <Link to="/Login">登入</Link>
             </li>
           </ul>
         </nav>
@@ -27,11 +32,12 @@ root.render(
         {/* 頁面路由 */}
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>
-    <App/>
+    {/* <App/> */}
   </React.StrictMode>
 );
 
