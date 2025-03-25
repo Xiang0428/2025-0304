@@ -1,3 +1,4 @@
+import { computeHeadingLevel } from '@testing-library/dom';
 import React, { useState } from 'react';
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
   // 處理更新資料
   const handleUpdate = (newName, newPassword) => {
     if (currentUser) {
+      console.log(currentUser);
       // 更新當前用戶的資料
       const updatedUser = { ...currentUser, Name: newName, password: newPassword };
       
@@ -45,11 +47,13 @@ function App() {
       const updatedUsers = users.map(user => 
         user.account === currentUser.account ? updatedUser : user
       );
+    
 
       // 更新 state 中的 users 資料
       setUsers(updatedUsers);
       setCurrentUser(updatedUser); // 更新當前使用者資料
       setMessage(`資料更新成功！`);
+      console.log(updatedUser);
     }
   };
 
@@ -67,6 +71,7 @@ function App() {
   };
 
   return (
+    
     <div className="App">
       {/* 顯示 users 陣列資料 */}
       <h3>目前的 Users 資料</h3>
